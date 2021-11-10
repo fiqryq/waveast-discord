@@ -28,7 +28,8 @@ const command: Command = {
                 }
             ]
         }
-        message.channel.send({ embeds: [MessageEmbed] });
+        if (response.stderr) message.reply(response.stderr)
+        else if (response.stdout) message.channel.send({ embeds: [MessageEmbed] });
     },
 };
 
